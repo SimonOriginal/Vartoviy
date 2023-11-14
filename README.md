@@ -4,12 +4,13 @@
 Этот проект предлагает полную открытость исходного кода для сервера, прошивки устройства и детальные схемы самого устройства. Вам предоставляется возможность свободного доступа к каждой составляющей проекта, что обеспечивает прозрачность и возможность полного понимания его работы.
 
 **Отмечу, что Guardian в настоящее время находится в стадии бета-тестирования. Несмотря на то, что он предполагается для эффективного использования большинством пользователей, стоит учитывать наличие ошибок и отсутствие некоторых функций.**
+
 ### Скриншоты
 <p align="center">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/8e66d146-10a9-4dc3-8419-e68c160ee397" width="220" alt="Image 1">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/5c24ba4a-f020-4199-a3c2-826f09cc93f5" width="220" alt="Image 2">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="220" alt="Image 3">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="220" alt="Image 4">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/8e66d146-10a9-4dc3-8419-e68c160ee397" width="210" alt="Image 1">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/5c24ba4a-f020-4199-a3c2-826f09cc93f5" width="210" alt="Image 2">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="210" alt="Image 3">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="210" alt="Image 4">
 </p>
 
 ### Функции
