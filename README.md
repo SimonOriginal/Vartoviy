@@ -5,10 +5,10 @@
 **Отмечу, что Guardian в настоящее время находится в стадии бета-тестирования. Несмотря на то, что он предполагается для эффективного использования большинством пользователей, стоит учитывать наличие ошибок и отсутствие некоторых функций.**
 ### Скриншоты
 <p align="center">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/8e66d146-10a9-4dc3-8419-e68c160ee397" width="200" alt="Image 1">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/5c24ba4a-f020-4199-a3c2-826f09cc93f5" width="200" alt="Image 2">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="200" alt="Image 3">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="200" alt="Image 4">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/8e66d146-10a9-4dc3-8419-e68c160ee397" width="250" alt="Image 1">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/5c24ba4a-f020-4199-a3c2-826f09cc93f5" width="250" alt="Image 2">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="250" alt="Image 3">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="250" alt="Image 4">
 </p>
 ### Функции
 * Локализация для языков: Пользователи могут выбирать язык интерфейса из предложенных, включая "Английский", "Украинский" и "Русский".
