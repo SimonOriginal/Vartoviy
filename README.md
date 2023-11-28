@@ -7,7 +7,7 @@
 
 ### Скриншоты
 <p align="center">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/8e66d146-10a9-4dc3-8419-e68c160ee397" width="210" alt="Image 1">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/f5471048-55c7-4eda-aa2a-5fe1e147da6b" width="210" alt="Image 1">
     <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/5c24ba4a-f020-4199-a3c2-826f09cc93f5" width="210" alt="Image 2">
     <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="210" alt="Image 3">
     <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="210" alt="Image 4">
