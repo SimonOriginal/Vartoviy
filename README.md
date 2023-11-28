@@ -14,7 +14,7 @@
     <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="300" alt="Image 5">
     <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/06751e6d-1d3b-4d44-baec-b897ca2574ba" width="300" alt="Image 6">
     <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/be24ec32-cc9d-4b63-9b98-a7f5e1387a03" width="300" alt="Image 7">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/68def151-9445-4826-a08d-fbd5bcbd3fd3" width="300" alt="Image 8">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/b0bd8b6b-1bbe-4910-b537-fdb11c96e33c" width="300" alt="Image 8">
 </p>
 
 ### Функции
