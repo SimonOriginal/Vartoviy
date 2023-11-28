@@ -7,14 +7,14 @@
 
 ### Скриншоты
 <p align="center">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/0c8d4f81-c148-4550-9c5f-162a96852ee7" width="300" alt="Image 1">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/bfeffd59-6495-4e8a-aae7-6002a8e28272" width="300" alt="Image 2">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/04bb9161-e431-4744-9a70-8b552df96e54" width="300" alt="Image 3">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="300" alt="Image 4">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="300" alt="Image 5">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/06751e6d-1d3b-4d44-baec-b897ca2574ba" width="300" alt="Image 6">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/be24ec32-cc9d-4b63-9b98-a7f5e1387a03" width="300" alt="Image 7">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/b0bd8b6b-1bbe-4910-b537-fdb11c96e33c" width="300" alt="Image 8">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/0c8d4f81-c148-4550-9c5f-162a96852ee7" width="320" alt="Image 1">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/bfeffd59-6495-4e8a-aae7-6002a8e28272" width="320" alt="Image 2">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/04bb9161-e431-4744-9a70-8b552df96e54" width="320" alt="Image 3">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="320" alt="Image 4">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="320" alt="Image 5">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/06751e6d-1d3b-4d44-baec-b897ca2574ba" width="320" alt="Image 6">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/be24ec32-cc9d-4b63-9b98-a7f5e1387a03" width="320" alt="Image 7">
+    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/b0bd8b6b-1bbe-4910-b537-fdb11c96e33c" width="320" alt="Image 8">
 </p>
 
 ### Функции
