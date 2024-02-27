@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate 'Регистрация' %}{% endblock title %}
+{% comment %} {% block extrastyle %}<link rel="icon" type="image/x-icon" href="{% static 'img/registration.png'%}">{% endblock %} {% endcomment %}
+{% block content %}
+
+{% comment %}             <!-- Форма регистрации -->
+            <form action="{% url 'register' %}" method="post" id="registration-form">
+                <div class="mb-4">
+                    {% csrf_token %}
+                    {{form|crispy}}
+
+                </div>
+                <div class="mb-4 d-flex justify-content-center align-items-center">
+                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                </div>
+            </form> {% endcomment %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">{% translate 'Регистрация' %}</h3>
+                    <form action="{% url 'register' %}" method="post" id="registration-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name-input" class="form-label"><i class="fas fa-user"></i> {% translate 'Введите имя' %}</label>
+                            <input type="text" class="form-control" id="name-input" name="username" required>
+                            <div class="error" id="name-error"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email-input" class="form-label"><i class="fas fa-envelope"></i> {% translate 'Email адрес' %}</label>
+                            <input type="email" class="form-control" id="email-input" name="email" required>
+                            <div class="error" id="email-error"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password-input" class="form-label">
+                                <i class="fas fa-lock"></i> {% translate 'Пароль' %}
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="password-input" name="password1" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn1">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="error" id="password-error"></div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="confirm-password-input" class="form-label">
+                                <i class="fas fa-lock"></i> {% translate 'Подтвердите пароль' %}
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirm-password-input" name="password2" required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn2">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="error" id="confirm-password-error"></div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-block">{% translate 'Зарегистрироваться' %}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const passwordInput = document.getElementById('password-input');
+        const confirmPasswordInput = document.getElementById('confirm-password-input');
+        const showPasswordBtn1 = document.getElementById('showPasswordBtn1');
+        const showPasswordBtn2 = document.getElementById('showPasswordBtn2');
+    
+        showPasswordBtn1.addEventListener('click', function () {
+            togglePasswordVisibility(passwordInput, showPasswordBtn1);
+        });
+    
+        showPasswordBtn2.addEventListener('click', function () {
+            togglePasswordVisibility(confirmPasswordInput, showPasswordBtn2);
+        });
+    
+        function togglePasswordVisibility(inputField, showPasswordBtn) {
+            if (inputField.type === 'password') {
+                inputField.type = 'text';
+                showPasswordBtn.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                inputField.type = 'password';
+                showPasswordBtn.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        }
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,733 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-23 14:50+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\animals\models.py:11
+msgid "Male"
+msgstr "Male"
+
+#: .\animals\models.py:12
+msgid "Female"
+msgstr "Female"
+
+#: .\animals\models.py:18
+msgid "Пол"
+msgstr "Gender"
+
+#: .\guardian\settings.py:140
+msgid "English"
+msgstr "English"
+
+#: .\guardian\settings.py:141
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+#: .\guardian\settings.py:142
+msgid "Russian"
+msgstr "Russian"
+
+#: .\notices\signals.py:11
+#, python-brace-format
+msgid "Низкий заряд батареи! Текущий заряд устройства {device}: {charge}%"
+msgstr "Low battery charge! Current charge of device {device}: {charge}%"
+
+#: .\notices\signals.py:19
+#, python-brace-format
+msgid "Нет спутниковой связи у устройства {device}!"
+msgstr "No satellite connection for device {device}!"
+
+#: .\notices\signals.py:26
+#, python-brace-format
+msgid "Устройство {device} покинуло барьер!"
+msgstr "Device {device} has left the barrier!"
+
+#: .\templates\about_us\about.html:6 .\templates\about_us\about.html:15
+#: .\templates\base.html:149
+msgid "О проекте"
+msgstr "About project"
+
+#: .\templates\about_us\about.html:17
+msgid "Текущая версия проекта"
+msgstr "Current version of the project"
+
+#: .\templates\about_us\about.html:19
+msgid "Нет версий"
+msgstr "No versions"
+
+#: .\templates\about_us\about.html:21
+msgid "Проект разработан и поддерживается этими талантливыми разработчиками"
+msgstr "The project is developed and maintained by these talented developers"
+
+#: .\templates\about_us\about.html:56
+msgid ""
+"Здесь вы можете найти ответы на часто задаваемые вопросы о нашем проекте."
+msgstr ""
+"Here you can find answers to frequently asked questions about our project."
+
+#: .\templates\about_us\about.html:77
+msgid "Нет вопросов и ответов в FAQ."
+msgstr "There are no questions and answers in the FAQ."
+
+#: .\templates\base.html:36
+msgid "Приборная панель"
+msgstr "Dashboard"
+
+#: .\templates\base.html:41 .\templates\journeylog\journeylog.html:6
+msgid "История перемещений"
+msgstr "Moving history"
+
+#: .\templates\base.html:46
+msgid "Барьер"
+msgstr "Barrier"
+
+#: .\templates\base.html:51 .\templates\tables\tables_info_device.html:4
+msgid "Таблицы"
+msgstr "Tables"
+
+#: .\templates\base.html:63
+msgid "Тема"
+msgstr "Theme"
+
+#: .\templates\base.html:67
+msgid "Светлая"
+msgstr "Light"
+
+#: .\templates\base.html:70
+msgid "Темная"
+msgstr "Dark"
+
+#: .\templates\base.html:77
+msgid "Язык"
+msgstr "Language"
+
+#: .\templates\base.html:101
+msgid "Аккаунт"
+msgstr "Account"
+
+#: .\templates\base.html:106 .\templates\registration\profile.html:4
+msgid "Профиль"
+msgstr "Profile"
+
+#: .\templates\base.html:110 .\templates\notices\notifications.html:3
+#: .\templates\notices\notifications.html:6
+msgid "Уведомления"
+msgstr "Notices"
+
+#: .\templates\base.html:114 .\templates\device_aud\device_aud.html:3
+#: .\templates\device_aud\device_aud.html:21
+msgid "Добавить устройство"
+msgstr "Add the device"
+
+#: .\templates\base.html:117
+msgid "Админка"
+msgstr "Admin"
+
+#: .\templates\base.html:138
+msgid "Выход"
+msgstr "Log out"
+
+#: .\templates\base.html:142
+msgid "Вход"
+msgstr "Log in"
+
+#: .\templates\base.html:145 .\templates\registration\register.html:6
+#: .\templates\registration\register.html:29
+msgid "Регистрация"
+msgstr "Registration"
+
+#: .\templates\device_aud\device_aud.html:25
+#: .\templates\device_aud\device_aud.html:66
+#: .\templates\device_aud\device_aud.html:95
+msgid "Имя устройства"
+msgstr "Device name"
+
+#: .\templates\device_aud\device_aud.html:28
+#: .\templates\device_aud\device_aud.html:67
+#: .\templates\device_aud\device_aud.html:99
+msgid "Идентификатор устройства"
+msgstr "Device ID"
+
+#: .\templates\device_aud\device_aud.html:31
+msgid "Добавить"
+msgstr "Add"
+
+#: .\templates\device_aud\device_aud.html:34
+msgid "Параметры MQTT"
+msgstr "MQTT settings"
+
+#: .\templates\device_aud\device_aud.html:38
+msgid "Адрес брокера MQTT"
+msgstr "MQTT broker address"
+
+#: .\templates\device_aud\device_aud.html:41
+msgid "Порт брокера MQTT"
+msgstr "MQTT broker port"
+
+#: .\templates\device_aud\device_aud.html:44
+#: .\templates\registration\login.html:41
+#: .\templates\registration\profile.html:19
+msgid "Имя пользователя"
+msgstr "Username"
+
+#: .\templates\device_aud\device_aud.html:48
+#: .\templates\registration\login.html:46
+#: .\templates\registration\register.html:44
+msgid "Пароль"
+msgstr "Password"
+
+#: .\templates\device_aud\device_aud.html:57
+msgid "Сохранить"
+msgstr "Save"
+
+#: .\templates\device_aud\device_aud.html:68
+msgid "Действия"
+msgstr "Actions"
+
+#: .\templates\device_aud\device_aud.html:77
+msgid "Редактировать"
+msgstr "Edit"
+
+#: .\templates\device_aud\device_aud.html:78
+#: .\templates\notices\notifications.html:22
+#: .\templates\notices\notifications.html:169
+msgid "Удалить"
+msgstr "Delete"
+
+#: .\templates\device_aud\device_aud.html:86
+msgid "Редактировать устройство"
+msgstr "Edit device"
+
+#: .\templates\device_aud\device_aud.html:96
+msgid "Введите Имя устройства"
+msgstr "Enter the Device Name"
+
+#: .\templates\device_aud\device_aud.html:100
+msgid "Введите идентификатор устройства"
+msgstr "Enter the device ID"
+
+#: .\templates\device_aud\device_aud.html:102
+#: .\templates\registration\profile.html:35
+msgid "Сохранить изменения"
+msgstr "Save changes"
+
+#: .\templates\geomaps\virtual_barrier.html:6
+msgid "Настройка барьера"
+msgstr "Setting up the barrier"
+
+#: .\templates\geomaps\virtual_barrier.html:20
+msgid "Сохранить в память"
+msgstr "Save to memory"
+
+#: .\templates\geomaps\virtual_barrier.html:23
+msgid "GeoJSON"
+msgstr "GeoJSON"
+
+#: .\templates\geomaps\virtual_barrier.html:35 .\templates\home\home.html:37
+#: .\templates\journeylog\journeylog.html:59
+#: .\templates\tables\tables_info_device.html:22
+msgid "Нет устройств !"
+msgstr "No devices !"
+
+#: .\templates\geomaps\virtual_barrier.html:40
+msgid "Местоположение"
+msgstr "Location"
+
+#: .\templates\home\home.html:9
+msgid "Главная"
+msgstr "Main"
+
+#: .\templates\home\home.html:22
+msgid ""
+"Выберите количество точек для отображения на графике максимально 5000 штук."
+msgstr ""
+"Select the number of points to be displayed on the chart up to a maximum of "
+"5000 points."
+
+#: .\templates\home\home.html:22
+msgid "Точки на графика"
+msgstr "The dots on the graph"
+
+#: .\templates\home\home.html:28
+msgid "Идентификатор"
+msgstr "ID"
+
+#: .\templates\home\home.html:43
+msgid "Заряд батареи"
+msgstr "Battery charge"
+
+#: .\templates\home\home.html:48 .\templates\tables\tables_info_device.html:55
+msgid "Спутники"
+msgstr "Satellites"
+
+#: .\templates\home\home.html:52 .\templates\tables\tables_info_device.html:80
+msgid "Высота"
+msgstr "Altitude"
+
+#: .\templates\home\home.html:58
+msgid "Широта и долгота"
+msgstr "Lat... & Longitude"
+
+#: .\templates\home\home.html:62
+msgid "Вкл. шокера"
+msgstr "Shocker on"
+
+#: .\templates\home\home.html:66
+msgid "Расположение"
+msgstr "Location"
+
+#: .\templates\home\home.html:70
+msgid "Температура за °F"
+msgstr "Temperature per °F"
+
+#: .\templates\home\home.html:76
+msgid "Температура за °C"
+msgstr "Temperature per °C"
+
+#: .\templates\home\home.html:80
+msgid "Влажность"
+msgstr "Humidity"
+
+#: .\templates\home\home.html:84 .\templates\tables\tables_info_device.html:79
+msgid "Давление"
+msgstr "Pressure"
+
+#: .\templates\home\home.html:88 .\templates\tables\tables_info_device.html:59
+#: .\templates\tables\tables_info_device.html:84
+msgid "Дата и время"
+msgstr "Date and time"
+
+#: .\templates\home\home.html:113
+msgid "График заряда батареи"
+msgstr "Battery charge chart"
+
+#: .\templates\home\home.html:133
+msgid "График высототы над уровнем моря"
+msgstr "Chart of altitude above sea level"
+
+#: .\templates\home\home.html:150
+msgid "График количества видимых спутников"
+msgstr "Chart of the number of visible satellites"
+
+#: .\templates\home\home.html:167
+msgid "График изменений в расположении"
+msgstr "Chart of changes in location"
+
+#: .\templates\home\home.html:184 .\templates\home\home.html:201
+msgid "График изменений температуры"
+msgstr "Graph of temperature changes"
+
+#: .\templates\home\home.html:218
+msgid "График изменений влажности"
+msgstr "Graph of humidity changes"
+
+#: .\templates\home\home.html:235
+msgid "График изменений давления"
+msgstr "Graph of pressure changes"
+
+#: .\templates\home\home.html:252
+msgid "График включений шокера"
+msgstr "Shocker activation schedule"
+
+#: .\templates\journeylog\journeylog.html:66
+msgid "Последня"
+msgstr "Last"
+
+#: .\templates\journeylog\journeylog.html:71
+msgid "Обновить"
+msgstr "Update"
+
+#: .\templates\journeylog\journeylog.html:78
+msgid "Авто"
+msgstr "Auto"
+
+#: .\templates\journeylog\journeylog.html:85
+msgid ""
+"Выберите количество маркеров для отображения на карте максимально 5000 штук."
+msgstr ""
+"Select the number of markers to be displayed on the map up to a maximum of "
+"5000."
+
+#: .\templates\journeylog\journeylog.html:85
+msgid "Количество маркеров на карте:"
+msgstr "The number of markers on the map:"
+
+#: .\templates\notices\notifications.html:18
+#: .\templates\notices\notifications.html:164
+msgid "Новое"
+msgstr "New"
+
+#: .\templates\notices\notifications.html:20
+#: .\templates\notices\notifications.html:166
+msgid "Просмотренно"
+msgstr "Viewed"
+
+#: .\templates\notices\notifications.html:28
+msgid "Нет уведомлений!"
+msgstr "No notifications!"
+
+#: .\templates\notices\notifications.html:33
+msgid "Удалить все"
+msgstr "Delete all"
+
+#: .\templates\notices\notifications.html:42
+msgid "Предыдущая"
+msgstr "Previous"
+
+#: .\templates\notices\notifications.html:60
+msgid "Следующая"
+msgstr "Next"
+
+#: .\templates\notices\notifications.html:65
+msgid "Страница"
+msgstr "Page"
+
+#: .\templates\notices\notifications.html:66
+msgid "Перейти"
+msgstr "Go"
+
+#: .\templates\notices\notifications.html:97
+msgid "Вы уверены, что хотите удалить все уведомления?"
+msgstr "Are you sure you want to remove all notifications?"
+
+#: .\templates\registration\change_password.html:13
+#: .\templates\registration\password_change_done.html:18
+#: .\templates\registration\password_change_form.html:27
+#: .\templates\registration\password_reset_confirm.html:18
+#: .\templates\registration\password_reset_done.html:8
+msgid "Home"
+msgstr "Home"
+
+#: .\templates\registration\change_password.html:17
+#: .\templates\registration\change_password.html:55
+#: .\templates\registration\password_change_form.html:15
+msgid "Change password"
+msgstr "Change password"
+
+#: .\templates\registration\change_password.html:28
+#: .\templates\registration\password_change_form.html:42
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\registration\change_password.html:32
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr "Enter a new password for the user <strong>%(username)s</strong>."
+
+#: .\templates\registration\login.html:6 .\templates\registration\login.html:36
+msgid "Авторизация"
+msgstr "Sign-in"
+
+#: .\templates\registration\login.html:58
+msgid "Войти"
+msgstr "Log in"
+
+#: .\templates\registration\login.html:62
+msgid "Забыли пароль?"
+msgstr "Forgot your password?"
+
+#: .\templates\registration\password_change_done.html:6
+#: .\templates\registration\password_change_form.html:15
+msgid "Documentation"
+msgstr "Documentation"
+
+#: .\templates\registration\password_change_done.html:9
+#: .\templates\registration\password_change_form.html:18
+msgid "Log out"
+msgstr "Log out"
+
+#: .\templates\registration\password_change_done.html:19
+#: .\templates\registration\password_change_form.html:28
+msgid "Password change"
+msgstr "Password change"
+
+#: .\templates\registration\password_change_done.html:30
+msgid "Your password was changed."
+msgstr "Your password was changed."
+
+#: .\templates\registration\password_change_form.html:67
+#: .\templates\registration\password_reset_confirm.html:57
+msgid "Change my password"
+msgstr "Change my password"
+
+#: .\templates\registration\password_reset_complete.html:23
+msgid "Ваш пароль был установлен. Теперь вы можете войти в систему."
+msgstr "Your password has been set. You can now log in to the system."
+
+#: .\templates\registration\password_reset_complete.html:25
+msgid "Log in"
+msgstr "Log in"
+
+#: .\templates\registration\password_reset_confirm.html:4
+#, fuzzy
+#| msgid "Подтвердите пароль"
+msgid "Изменение пароля"
+msgstr "Confirm password"
+
+#: .\templates\registration\password_reset_confirm.html:19
+msgid "Password reset confirmation"
+msgstr "Password reset confirmation"
+
+#: .\templates\registration\password_reset_confirm.html:34
+msgid "Сброс пароля"
+msgstr "Reset password"
+
+#: .\templates\registration\password_reset_confirm.html:40
+msgid "New password:"
+msgstr "New password:"
+
+#: .\templates\registration\password_reset_confirm.html:49
+msgid "Confirm password:"
+msgstr "Confirm password:"
+
+#: .\templates\registration\password_reset_confirm.html:62
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:4
+msgid "Пароль сброшен успешно"
+msgstr "Password reset successfully"
+
+#: .\templates\registration\password_reset_done.html:10
+msgid "Password reset"
+msgstr "Password reset"
+
+#: .\templates\registration\password_reset_done.html:19
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+
+#: .\templates\registration\password_reset_done.html:22
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:3
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: .\templates\registration\password_reset_email.html:5
+msgid "Please go to the following page and choose a new password:"
+msgstr "Please go to the following page and choose a new password:"
+
+#: .\templates\registration\password_reset_email.html:9
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Your username, in case you’ve forgotten:"
+
+#: .\templates\registration\password_reset_email.html:11
+msgid "Thanks for using our site!"
+msgstr "Thanks for using our site!"
+
+#: .\templates\registration\password_reset_email.html:13
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "The %(site_name)s team"
+
+#: .\templates\registration\password_reset_form.html:4
+#: .\templates\registration\password_reset_form.html:8
+#, fuzzy
+#| msgid "Подтвердите пароль"
+msgid "Восстановление пароля"
+msgstr "Confirm password"
+
+#: .\templates\registration\password_reset_form.html:16
+#, fuzzy
+#| msgid "Добавить"
+msgid "Отправить"
+msgstr "Add"
+
+#: .\templates\registration\profile.html:12
+msgid "Профиль пользователя"
+msgstr "User Profile"
+
+#: .\templates\registration\profile.html:20
+msgid "Введите новое имя"
+msgstr "Enter a new name"
+
+#: .\templates\registration\profile.html:23
+#: .\templates\registration\register.html:38
+msgid "Email адрес"
+msgstr "Email address"
+
+#: .\templates\registration\profile.html:24
+msgid "Введите Email адрес"
+msgstr "Enter Email address"
+
+#: .\templates\registration\profile.html:38
+msgid "Хотите изменить пароль?"
+msgstr "Do you want to change your password?"
+
+#: .\templates\registration\register.html:33
+msgid "Введите имя"
+msgstr "Enter name"
+
+#: .\templates\registration\register.html:59
+msgid "Подтвердите пароль"
+msgstr "Confirm password"
+
+#: .\templates\registration\register.html:72
+msgid "Зарегистрироваться"
+msgstr "Sign up"
+
+#: .\templates\tables\tables_info_device.html:42
+msgid "Информация об устройстве"
+msgstr "Device information"
+
+#: .\templates\tables\tables_info_device.html:45
+msgid "Измерения устройства"
+msgstr "Measurements of the device"
+
+#: .\templates\tables\tables_info_device.html:54
+msgid "Уровень заряда батареи"
+msgstr "Battery charge level"
+
+#: .\templates\tables\tables_info_device.html:56
+msgid "Широта"
+msgstr "Latitude"
+
+#: .\templates\tables\tables_info_device.html:57
+msgid "Долгота"
+msgstr "Longitude"
+
+#: .\templates\tables\tables_info_device.html:58
+msgid "Внутри - снаружи"
+msgstr "Inside to Outside."
+
+#: .\templates\tables\tables_info_device.html:78
+#: .\templates\tables\tables_info_device.html:81
+msgid "Температура"
+msgstr "Temperature"
+
+#: .\templates\tables\tables_info_device.html:82
+msgid "Влажность воздуха"
+msgstr "Air humidity"
+
+#: .\templates\tables\tables_info_device.html:83
+msgid "Активация тазера"
+msgstr "Activating the shocker"
+
+#: .\users\forms.py:10
+msgid "Email"
+msgstr "Email"
+
+#~ msgid "Версия"
+#~ msgstr "Version"
+
+#~ msgid "Описание"
+#~ msgstr "Description"
+
+#~ msgid "Описания"
+#~ msgstr "Descriptions"
+
+#~ msgid "Имя разработчика"
+#~ msgstr "Developer's name"
+
+#, fuzzy
+#~| msgid "Профиль"
+#~ msgid "Профиль GitHub"
+#~ msgstr "Profile GitHub"
+
+#~ msgid "Разработчик"
+#~ msgstr "Developer"
+
+#~ msgid "Разработчики"
+#~ msgstr "Developers"
+
+#~ msgid "Вопрос"
+#~ msgstr "Question"
+
+#~ msgid "Ответ"
+#~ msgstr "Answer"
+
+#, fuzzy
+#~| msgid "Нет вопросов и ответов в FAQ."
+#~ msgid "Вопрос - ответ"
+#~ msgstr "There are no questions and answers in the FAQ."
+
+#~ msgid "Вопросы - ответы"
+#~ msgstr "Questions - answers"
+
+#, fuzzy
+#~| msgid "Имя пользователя"
+#~ msgid "Пользователь"
+#~ msgstr "Username"
+
+#, fuzzy
+#~| msgid "Имя устройства"
+#~ msgid "Устройство"
+#~ msgstr "Device name"
+
+#, fuzzy
+#~| msgid "Имя устройства"
+#~ msgid "Устройства"
+#~ msgstr "Device name"
+
+#, fuzzy
+#~| msgid "График количества видимых спутников"
+#~ msgid "Количество спутников"
+#~ msgstr "Chart of the number of visible satellites"
+
+#, fuzzy
+#~| msgid "Внутри - снаружи"
+#~ msgid "Внутри или снаружи"
+#~ msgstr "Inside to Outside."
+
+#, fuzzy
+#~| msgid "Информация об устройстве"
+#~ msgid "Информация об устройствах"
+#~ msgstr "Device information"
+
+#, fuzzy
+#~| msgid "Идентификатор устройства"
+#~ msgid "Идентификатор измерения"
+#~ msgstr "Device ID"
+
+#~ msgid "Атмосферное давление"
+#~ msgstr "Atmospheric pressure"
+
+#, fuzzy
+#~| msgid "График высототы над уровнем моря"
+#~ msgid "Высота над уровнем моря"
+#~ msgstr "Chart of altitude above sea level"
+
+#, fuzzy
+#~| msgid "Количество маркеров на карте:"
+#~ msgid "Количество активаций тазера"
+#~ msgstr "The number of markers on the map:"
+
+#, fuzzy
+#~| msgid "Давление"
+#~ msgid "Измерение"
+#~ msgstr "Pressure"
+
+#, fuzzy
+#~| msgid "Измерения устройства"
+#~ msgid "Измерения устройств"
+#~ msgstr "Measurements of the device"
+
+#~ msgid "Добавить устройтсво"
+#~ msgstr "Add the device"

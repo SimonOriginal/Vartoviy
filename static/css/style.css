@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 99vh;
+}
+
+#console {
+    scrollbar-width: thin;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-text {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center; 
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.card-body {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+#map {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu {
+    text-align: center; 
+}
+
+/* body {
+    transition: background-color 0.3s, color 0.3s;
+} */
+
+.footer {
+    flex-shrink: 1;
+}
+
+.dropdown-item {
+    padding: 8px 20px;
+    text-align: left;
+}
+
+.list-unstyled {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.list-unstyled li {
+    flex: 0 0 25%; /* Четыре элемента в строке (100% / 4) */
+    padding: 5px;
+    text-align: center;
+}
+
+/* Add this to your styles */
+.smaller-input {
+    width: 220px; /* Adjust the width as needed */
+}
+
+.text-left {
+    text-align: left;
+}
+
+  /* Общие стили для полосы прокрутки */
+  ::-webkit-scrollbar {
+    width: 6px; /* Ширина полосы прокрутки */
+  }
+
+  /* Стили для ползунка */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888; /* Цвет ползунка */
+    border-radius: 4px; /* Скругление углов ползунка */
+  }
+
+  /* Стили для трека (фона) */
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Цвет трека (фона) */
+    border-radius: 4px; /* Скругление углов трека (фона) */
+  }

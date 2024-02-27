@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate 'Настройка барьера' %}{% endblock title %}
+{% block extrastyle %}
+{% comment %} <link rel="icon" type="image/x-icon" href="{% static 'img/barrier.png'%}"> {% endcomment %}
+{% endblock %}
+{% block content %}
+
+<!-- HTML-код страницы -->
+<div class="container">
+    <div id="map" class="mb-4" style="height: 62vh;"></div>
+    <div class="row mb-4">
+        <div class="col-md-3">
+            {% csrf_token %}
+            <button class="btn btn-primary btn-block mb-2" id="saveGeoJSONToDatabase">
+                <i class="fa-solid fa-cloud-arrow-up"></i> {% translate 'Сохранить в память' %}
+            </button>
+            <button class="btn btn-success btn-block mb-2" id="downloadGeoJSON">
+                <i class="fas fa-download"></i> {% translate 'GeoJSON' %}
+            </button>
+        </div>
+        <div class="col-md-3">
+            <div class="dropdown mb-2">
+                {% csrf_token %}
+                <select id="deviceDropdown" class="form-control">
+                    {% if devices %}
+                    {% for device in devices %}
+                        <option value="{{ device.id }}">{{ device.device_name }}</option>
+                    {% endfor %}
+                    {% else %}
+                        <option>{% translate 'Нет устройств !' %}</option>
+                    {% endif %}
+                </select> 
+            </div>
+            <button class="btn btn-info btn-block mb-2" id="getLocationButton">
+                <i id="locationIcon" class="fas fa-street-view"></i> {% translate 'Местоположение' %}
+            </button>
+        </div>            
+        <div class="col-md-6">
+            <div class="input-group">
+                <textarea class="form-control position-relative" id="console" rows="4" style="z-index: 1; min-height: 130px; max-height: 170px; text-align: center;" readonly></textarea>
+                <button class="btn btn-secondary position-absolute top-0 end-0 m-1" type="button" id="copy-button" style="z-index: 2;">
+                    <i class="far fa-copy"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<!-- Leaflet JS и плагины -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<!-- Пользовательский JavaScript файлы -->
+<script src="{% static 'js/geomaps_virtual_barrier.js' %}"></script>
+{% comment %} <script src="{% static 'js/geomaps_virtual_barrier_download.js' %}"></script> {% endcomment %}
+<script src="{% static 'js/position.js' %}"></script>
+{% endblock %}
+

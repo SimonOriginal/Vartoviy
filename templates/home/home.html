@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block extrastyle %}
+{% comment %} <link rel="icon" type="image/x-icon" href="{% static 'img/home.png'%}"> {% endcomment %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css" />
+{% endblock %}
+{% block title %}{% translate 'Главная' %}{% endblock title %}
+
+{% block content %}
+<div class="container">
+   
+    <div class="row">
+        <div class="col-md-3 mb-2">
+            <div id="map" style="height: 68vh; width: 100%;"></div>  {% comment %} height: 80vh {% endcomment %}
+            <!-- Слайдер -->
+            <div class="col-md-12 unselectable-text mt-4">
+                <div class="form-group">
+                    <input type="range" class="form-control-range" id="maxDataPointsSlider" min="1" max="5000" value="50">
+                    <label for="maxDataPointsSlider" title="{% translate 'Выберите количество точек для отображения на графике максимально 5000 штук.' %}"><i class="fa-solid fa-chart-area"></i> {% translate 'Точки на графика' %}: <span id="maxDataPointsValue">40</span></label> 
+                </div>                
+        </div>         
+        </div>
+        <div class="col-md-3">
+            <div class="card card-body mb-2" id="unitNumbers-card" style="height: 16vh;">
+                <h5 class="card-title"><i class="fas fa-barcode"></i> {% translate 'Идентификатор' %}</h5>
+                <div class="dropdown">
+                    {% csrf_token %}
+                    <select id="deviceDropdown" class="form-control">
+                        {% if devices %}
+                        {% for device in devices %}
+                            <option value="{{ device.id }}">{{ device.device_name }}</option>
+                        {% endfor %}
+                        {% else %}
+                            <option>{% translate 'Нет устройств !' %}</option>
+                        {% endif %}
+                    </select> 
+                </div>            
+            </div>
+            <div class="card card-body mb-2" id="battery-card" style="height: 16vh;" data-toggle="modal" data-target="#batteryModal">
+                <h5 class="card-title" ><i class="fas fa-battery-full"></i> {% translate 'Заряд батареи' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="batteryCharge"></p>
+            </div>
+            
+            <div class="card card-body mb-2" id="satellite-card" style="height: 16vh;" data-toggle="modal" data-target="#satelliteCountModal">
+                <h5 class="card-title"><i class="fas fa-satellite-dish"></i> {% translate 'Спутники' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="satelliteCount"></p>
+            </div>
+            <div class="card card-body mb-2" id="altitude-card" style="height: 16vh;" data-toggle="modal" data-target="#altitudeModal">
+                <h5 class="card-title"><i class="fas fa-arrow-up"></i> {% translate 'Высота' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="altitude"></p>
+            </div>
+        </div>            
+        <div class="col-md-3">
+            <div class="card card-body mb-2" id="latLong-card" style="height: 16vh;">
+                <h5 class="card-title"><i class="fas fa-globe"></i> {% translate 'Широта и долгота' %}</h5>
+                <p class="card-text" id="latLong"></p>
+            </div>
+            <div class="card card-body mb-2" id="taser-card" style="height: 16vh;" data-toggle="modal" data-target="#taserActivationsModal">
+                <h5 class="card-title"><i class="fas fa-bolt"></i> {% translate 'Вкл. шокера' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="taserActivations"></p>
+            </div>
+            <div class="card card-body mb-2" id="device-Location" style="height: 16vh;"  data-toggle="modal" data-target="#deviceLocationModal">
+                <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {% translate 'Расположение' %}</h5>
+                <p class="card-text" id="deviceLocation"></p>
+            </div>
+            <div class="card card-body mb-2" id="cumulative-Angle" style="height: 16vh;" data-toggle="modal" data-target="#cumulativeAngleModal">
+                <h5 class="card-title"><i class="fas fa-thermometer-half"></i> {% translate 'Температура за °F' %}</h5>
+                <p class="card-text" id="cumulativeAngle"></p>
+            </div>
+        </div>            
+        <div class="col-md-3">
+            <div class="card card-body mb-2" id="temperature-card" style="height: 16vh;" data-toggle="modal" data-target="#temperatureModal">
+                <h5 class="card-title"><i class="fas fa-thermometer-half"></i> {% translate 'Температура за °C' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="temperature"></p>
+            </div>
+            <div class="card card-body mb-2" id="humidity-card" style="height: 16vh;" data-toggle="modal" data-target="#humidityModal">
+                <h5 class="card-title"><i class="fas fa-tint"></i> {% translate 'Влажность' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="humidity"></p>
+            </div>
+            <div class="card card-body mb-2" id="pressure-card" style="height: 16vh;" data-toggle="modal" data-target="#pressureModal">
+                <h5 class="card-title"><i class="fas fa-tachometer-alt"></i> {% translate 'Давление' %} <i class="fas fa-caret-down"></i></h5>
+                <p class="card-text" id="pressure"></p>
+            </div>
+            <div class="card card-body mb-2" style="height: 16vh;">
+                <h5 class="card-title"><i class="far fa-calendar-alt"></i> {% translate 'Дата и время' %}</h5>
+                <p class="card-text" id="dateTime"></p>
+            </div>
+        </div>   
+    </div>
+</div>
+{% comment %} <div class="col-md-15 mt-4">
+    <!-- Canvas for Chart.js -->
+    <canvas id="batteryChart" width="300" height="100"></canvas>
+    <canvas id="satelliteChart" width="300" height="100"></canvas>
+    <canvas id="insideChart" width="300" height="100"></canvas>
+    <canvas id="cumulativeAngleChart" width="300" height="100"></canvas>
+    <canvas id="pressureChart" width="300" height="100"></canvas>
+    <canvas id="altitudeChart" width="300" height="100"></canvas>
+    <canvas id="temperatureChart" width="300" height="100"></canvas>
+    <canvas id="humidityChart" width="300" height="100"></canvas>
+    <canvas id="taserActivationsChart" width="300" height="100"></canvas>
+</div> {% endcomment %}
+
+<!-- Модальное окно заряда батареи-->
+<div class="modal fade" id="batteryModal" tabindex="-1" role="dialog" aria-labelledby="batteryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="batteryModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График заряда батареи' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- График -->
+                <div class="d-flex justify-content-center">
+                    <canvas id="batteryChart" style="width: 100%; height: 100%;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+<!-- Модальное окно высототы над уровнем моря-->
+<div class="modal fade" id="altitudeModal" tabindex="-1" role="dialog" aria-labelledby="altitudeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="altitudeModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График высототы над уровнем моря' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="altitudeChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно количества видимых спутников-->
+<div class="modal fade" id="satelliteCountModal" tabindex="-1" role="dialog" aria-labelledby="satelliteCountModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="satelliteCountModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График количества видимых спутников' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="satelliteChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно Расположение<-->
+<div class="modal fade" id="deviceLocationModal" tabindex="-1" role="dialog" aria-labelledby="deviceLocationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deviceLocationModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График изменений в расположении' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="insideChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно изменений кумулятивного угола<-->
+<div class="modal fade" id="cumulativeAngleModal" tabindex="-1" role="dialog" aria-labelledby="cumulativeAngleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cumulativeAngleModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График изменений температуры' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="cumulativeAngleChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно изменений температуры<-->
+<div class="modal fade" id="temperatureModal" tabindex="-1" role="dialog" aria-labelledby="temperatureModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="temperatureModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График изменений температуры' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="temperatureChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно изменений влажности<-->
+<div class="modal fade" id="humidityModal" tabindex="-1" role="dialog" aria-labelledby="humidityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="humidityModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График изменений влажности' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="humidityChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно изменений давления<-->
+<div class="modal fade" id="pressureModal" tabindex="-1" role="dialog" aria-labelledby="pressureModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pressureModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График изменений давления' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="pressureChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно шокера<-->
+<div class="modal fade" id="taserActivationsModal" tabindex="-1" role="dialog" aria-labelledby="taserActivationsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="width: 60%; max-width: 60%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taserActivationsModalLabel"><i class="fa-solid fa-chart-area"></i> {% translate 'График включений шокера' %}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <!-- График -->
+                <canvas id="taserActivationsChart" style="width: 100%; height: 100%;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+    <!-- jQuery -->
+    {% comment %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {% endcomment %}
+    <!-- Leaflet JS and plugins -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <!-- Chart.js -->   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Your custom scripts -->
+    <script src="{% static 'js/chart.js' %}"></script>
+    <script src="{% static 'js/geomaps_virtual_barrier_download.js' %}"></script>
+    <script src="{% static 'js/control_device.js' %}"></script>
+    <!-- Функция для создания модального окна -->
+
+{% endblock %}

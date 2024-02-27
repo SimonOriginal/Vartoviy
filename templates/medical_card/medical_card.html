@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Мед. карта{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <!-- Поиск по устройствам -->
+    <div class="form-group">
+        <label for="deviceSelect">Выберите устройство:</label>
+        <div class="dropdown">
+            {% csrf_token %}
+            <select id="deviceDropdown" class="form-control" style="width: 150px; max-width: 150px;">
+                {% if devices %}
+                    {% for device in devices %}
+                        <option value="{{ device.id }}">{{ device.device_name }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option>Нет устройств!</option>
+                {% endif %}
+            </select>
+        </div>
+    </div>
+
+    <!-- Карточка с вкладками и информацией о животном -->
+    <!-- Карточка с вкладками и информацией о животном -->
+<div id="animal-detail-container">
+  <!-- Здесь будет отображаться информация о животном через AJAX -->
+  <div class="card">
+      <!-- Вкладки -->
+      <ul class="nav nav-tabs" id="myTabs" role="tablist">
+          <li class="nav-item">
+              <a class="nav-link active" id="mainInfo-tab" data-toggle="tab" href="#mainInfo" role="tab" aria-controls="mainInfo" aria-selected="true">Основная</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" id="additionalInfo-tab" data-toggle="tab" href="#additionalInfo" role="tab" aria-controls="additionalInfo" aria-selected="false">Дополнительная информация</a>
+          </li>
+      </ul>
+
+      <!-- Содержимое вкладок -->
+      <div class="tab-content mt-2">
+          <!-- Основная информация -->
+          <div class="tab-pane fade show active" id="mainInfo" role="tabpanel" aria-labelledby="mainInfo-tab">
+              <div class="card-body">
+                  <div class="row no-gutters">
+                      <div class="col-md-4">
+                          <img src="{% if animal.photo_set.all %}{{ animal.photo_set.first.image.url }}{% endif %}" class="card-img" alt="Изображение животного">
+                      </div>
+                      <div class="col-md-8">
+                          <div class="card-body">
+                              <h5 class="card-title"><i class="fas fa-paw"></i> {{ animal.name }}</h5>
+                              <p class="card-text"><i class="fas fa-paw"></i> {{ animal.species }}</p>
+                              <ul class="list-group list-group-flush">
+                                  <li class="list-group-item"><i class="fas fa-birthday-cake"></i> Возраст: {{ animal.age }} лет</li>
+                                  <li class="list-group-item"><i class="fas fa-dog"></i> Порода: {{ animal.breed }}</li>
+                                  <li class="list-group-item"><i class="fas fa-venus-mars"></i> Пол: {{ animal.get_gender_display }}</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Дополнительная информация -->
+          <div class="tab-pane fade" id="additionalInfo" role="tabpanel" aria-labelledby="additionalInfo-tab">
+              <div class="card-body">
+                  <div class="row no-gutters">
+                      <div class="col-md-8">
+                          <div class="card-body">
+                              <p class="card-text">Дополнительная информация о животном.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Handle dropdown change event
+        $('#deviceDropdown').change(function () {
+            var selectedDeviceId = $(this).val();
+
+            // Make an AJAX request to update content based on the selected device
+            $.ajax({
+                url: '?device_id=' + selectedDeviceId,
+                type: 'GET',
+                success: function (data) {
+                    // Update the content container with the received HTML
+                    $('#animal-detail-container').html(data.html);
+                },
+                error: function () {
+                    console.error('Error fetching data');
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

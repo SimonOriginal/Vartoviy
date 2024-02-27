@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% translate 'Профиль' %}{% endblock title %}
+{% comment %} {% block extrastyle %}<link rel="icon" type="image/x-icon" href="{% static 'img/registration.png'%}">{% endblock %} {% endcomment %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">{% translate 'Профиль пользователя' %}</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Форма для изменения пароля и имени пользователя -->
+                    <form action="{% url 'profile' %}" method="post" id="profile-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="inputUsername"><i class="fas fa-user"></i> {% translate 'Имя пользователя' %}</label>
+                            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="{% translate 'Введите новое имя' %}" value="{{ user.username }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-input" class="form-label"><i class="fas fa-envelope"></i> {% translate 'Email адрес' %}</label>
+                            <input type="email" class="form-control" id="email-input" name="email" placeholder="{% translate 'Введите Email адрес' %}" required value="{{ user.email }}">
+                        </div>                        
+{% comment %}                         <div class="form-group">
+                            <label for="inputPassword"><i class="fas fa-lock"> </i> Новый пароль</label>
+                            <input type="password" class="form-control" id="inputPassword" name="password1" placeholder="Введите новый пароль">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword"><i class="fas fa-lock"> </i> Подтвердите пароль</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="password2" placeholder="Подтвердите пароль">
+                        </div> {% endcomment %}
+                        <button type="submit" class="btn btn-primary mb-4">{% translate 'Сохранить изменения' %}</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'password_reset' %}">{% translate 'Хотите изменить пароль?' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

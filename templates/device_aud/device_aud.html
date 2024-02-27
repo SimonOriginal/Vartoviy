@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% translate 'Добавить устройство' %}{% endblock title %} 
+{% block content %}
+  <div class="container">
+
+    {% if error_message %}
+      <div class="alert alert-danger" role="alert">
+        {{ error_message }}
+      </div>
+    {% endif %}
+
+    {% if success_message %}
+      <div class="alert alert-success" role="alert">
+        {{ success_message }}
+      </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-md-3 mt-4">
+        <p class="font-weight-bold"><i class="fa-solid fa-sim-card"></i> {% translate 'Добавить устройство' %}</p>
+        <form action="{% url 'device-view' %}" method="post" id="device-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" id="device_name-input" name="device_name" placeholder="{% translate 'Имя устройства' %}" required value="">
+            </div>       
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputunit_number" name="unit_number" placeholder="{% translate 'Идентификатор устройства' %}" required value="">
+            </div>           
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> {% translate 'Добавить' %}</button>
+            </div>              
+        </form>    
+        <p class="font-weight-bold mt-3"><i class="fa-regular fa-handshake"></i> {% translate 'Параметры MQTT' %}</p>
+        <form method="post" action="{% url 'device-view' %}" id="{{ form_id }}">
+          {% csrf_token %}
+          <div class="form-group">
+              <input type="text" class="form-control" id="mqtt-broker" name="mqtt_broker" placeholder="{% translate 'Адрес брокера MQTT' %}" required value="{{ connection.mqtt_broker|default:'' }}">
+          </div>
+          <div class="form-group">
+              <input type="number" class="form-control" id="mqtt-port" name="mqtt_port" placeholder="{% translate 'Порт брокера MQTT' %}" required value="{{ connection.mqtt_port|default:'' }}">
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" id="mqtt-username" name="mqtt_username" placeholder="{% translate 'Имя пользователя' %}" value="{{ connection.mqtt_username|default:'' }}">
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+                <input type="password" class="form-control" id="mqtt-password" name="mqtt_password" placeholder="{% translate 'Пароль' %}" value="{{ connection.mqtt_password|default:'' }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn">
+                        <i class="fas fa-eye"></i> <!-- Иконка отображения пароля -->
+                    </button>
+                </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> {% translate 'Сохранить' %}</button>
+          </div>
+      </form>
+    </div>
+      <div class="col-md-9 mt-3">
+        <div style="max-height: 500px; overflow-y: auto;">
+          <table class="table">
+            <thead>
+              <tr>
+                <th><i class="fa-solid fa-signature"></i> {% translate 'Имя устройства' %}</th>
+                <th><i class="fa-solid fa-fingerprint"></i> {% translate 'Идентификатор устройства' %}</th>
+                <th><i class="fa-solid fa-dharmachakra"></i> {% translate 'Действия' %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for device in devices %}
+                <tr>
+                  <td>{{ device.device_name }}</td>
+                  <td>{{ device.unit_number }}</td>
+                  <td>
+                    <a href="{% url 'device-edit' device.id %}" class="btn btn-warning btn-sm mr-2 mr-sm-0 mb-2 mb-sm-0" data-toggle="modal" data-target="#editDeviceModal{{ device.id }}"><i class="fa-solid fa-pen-to-square"></i> {% translate 'Редактировать' %}</a>
+                    <a href="{% url 'device-delete' device.id %}" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> {% translate 'Удалить' %}</a>                    
+                  </td>
+                </tr>
+              <!-- Модальное окно для редактирования устройства -->
+              <div class="modal fade" id="editDeviceModal{{ device.id }}" tabindex="-1" role="dialog" aria-labelledby="editDeviceModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="editDeviceModalLabel"><i class="fa-solid fa-pen-to-square"></i> {% translate 'Редактировать устройство' %}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="{% url 'device-edit' device.id %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <label for="edit_device_name"> {% translate 'Имя устройства' %} </label>
+                          <input type="text" class="form-control" id="edit_device_name" name="device_name" placeholder="{% translate 'Введите Имя устройства' %}" required value="{{ device.device_name }}">
+                        </div>
+                        <div class="form-group">
+                          <label for="edit_unit_number"> {% translate 'Идентификатор устройства' %} </label>
+                          <input type="text" class="form-control" id="edit_unit_number" name="unit_number" placeholder="{% translate 'Введите идентификатор устройства' %}" required value="{{ device.unit_number }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> {% translate 'Сохранить изменения' %}</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /Модальное окно для редактирования устройства -->
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>    
+    </div>
+  </div>
+{% endblock %}
+{% block js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const passwordInput = document.getElementById('mqtt-password');
+      const showPasswordBtn = document.getElementById('showPasswordBtn');
+  
+      showPasswordBtn.addEventListener('click', function () {
+          if (passwordInput.type === 'password') {
+              passwordInput.type = 'text';
+              showPasswordBtn.innerHTML = '<i class="fas fa-eye-slash"></i>'; // Иконка скрытия пароля
+          } else {
+              passwordInput.type = 'password';
+              showPasswordBtn.innerHTML = '<i class="fas fa-eye"></i>'; // Иконка отображения пароля
+          }
+      });
+  });
+  </script>
+{% endblock %}

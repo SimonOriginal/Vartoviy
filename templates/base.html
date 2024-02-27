@@ -1,0 +1,244 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet Draw CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+    <!-- Custom CSS for themes -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/control_icon.png'%}">
+    {% block extrastyle %}{% endblock %}
+</head>
+
+<body class="bg-light text-dark">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">
+                                <i class="fas fa-home"></i> {% translate 'Приборная панель' %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'journeylog' %}">
+                                <i class="fas fa-history"></i> {% translate 'История перемещений' %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'configuration' %}">
+                                <i class="fas fa-cogs"></i> {% translate 'Барьер' %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'tables' %}">
+                                <i class="fa-solid fa-table-list"></i> {% translate 'Таблицы' %}
+                            </a>
+                        </li>
+                        {% comment %} <li class="nav-item">
+                            <a class="nav-link" href="{% url 'animal_detail' %}">
+                                <i class="fa-solid fa-book-medical"></i> {% translate 'Мед. карта' %}
+                            </a>
+                        </li> {% endcomment %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="themeDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-adjust"></i> {% translate 'Тема' %}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="themeDropdown">
+                                <a class="dropdown-item" href="#" id="lightTheme">
+                                    <i class="fas fa-sun"></i> {% translate 'Светлая' %}
+                                </a>
+                                <a class="dropdown-item" href="#" id="darkTheme">
+                                    <i class="fas fa-moon"></i> {% translate 'Темная' %}
+                                </a>
+                            </div>
+                        </li>            
+                        <div id="language-switcher" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-globe"></i> {% translate 'Язык' %}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <form action="{% url 'set_language' %}" method="post" id="language-form">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+                                    <div class="dropdown-item">
+                                        <select name="language" id="language-select" class="form-control">
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %}
+                                            {% for lang_code, lang_name in LANGUAGES %}
+                                                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                                    {{ lang_name }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                        </div> 
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{% url 'profile' %}" id="accountDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i> {% translate 'Аккаунт' %}
+                                <span id="account-badge" class="badge badge-danger"></span>
+                            </a>     
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdown">
+                                <a class="dropdown-item" href="{% url 'profile' %}">
+                                    <i class="fas fa-user"></i> {% translate 'Профиль' %}: {{ user }}
+                                </a>
+                                {% if user.is_authenticated %}
+                                <a class="dropdown-item" href="{% url 'notifications' %}">
+                                    <i class="fa-regular fa-bell"></i> {% translate 'Уведомления' %}
+                                    <span id="notification-badge" class="badge badge-danger"></span>
+                                </a>
+                                <a class="dropdown-item" href="{% url 'device-view' %}">
+                                    <i class="fa-solid fa-sim-card"></i> {% translate 'Добавить устройство' %}
+                                </a>
+                                <a class="dropdown-item" href="{% url 'open_admin' %}">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i> {% translate 'Админка' %}
+                                </a>
+                                
+                                {% comment %} <div id="language-switcher">
+                                    <form action="{% url 'set_language' %}" method="post" id="language-form">
+                                        {% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+                                        <select name="language" id="language-select"> 
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %}
+                                            {% for lang_code, lang_name in LANGUAGES %}
+                                                <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                                    {{ lang_name }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </form>
+                                </div> {% endcomment %}
+                                    
+                                <a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="fas fa-sign-out-alt"></i> {% translate 'Выход' %}
+                                </a>                        
+                                {% else %}
+                                <a class="dropdown-item" href="{% url 'login' %}">
+                                    <i class="fa-solid fa-right-to-bracket"></i> {% translate 'Вход' %}
+                                </a>
+                                <a class="dropdown-item" href="{% url 'register' %}">
+                                    <i class="fa-solid fa-address-card"></i> {% translate 'Регистрация' %}
+                                </a>
+                                {% endif %}
+                                <a class="dropdown-item" href="{% url 'about_us' %}">
+                                    <i class="fas fa-info-circle"></i> {% translate 'О проекте' %}
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- HTML-код страницы -->
+    <main class="container mt-5 mb-4">
+        {% block content %}{% endblock content %}
+    </main>
+    <!-- Footer -->
+    <footer class="text-center py-3 mt-auto">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-left">
+                    <a href="https://github.com/SimonOriginal" class="text-black">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    
+                    <a rel="me" href="https://twiukraine.com/@originalsimon" style="margin-left: 10px;"> 
+                        <i class="fa-brands fa-mastodon"></i> Mastodon
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <p class="mb-0" id="currentYear"></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS и зависимости -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script>
+        document.getElementById('currentYear').innerText = 'OriginalSimon - 2023 - ' + new Date().getFullYear();
+    </script>
+
+    <!-- Пользовательский JavaScript файл -->
+    <script src="{% static 'js/theme_control.js'%}"></script>
+    <script>
+        function updateNotificationsBadge() {
+            $.get('{% url "unviewed_notifications_count" %}', function (data) {
+                var unviewedCount = data.unviewed_count || 0;
+    
+                if (unviewedCount === 0) {
+                    $('#notification-badge, #account-badge').hide();
+                } else {
+                    $('#notification-badge, #account-badge').text(unviewedCount).show();
+                }
+            });
+        }
+    
+        updateNotificationsBadge();
+    
+        setInterval(updateNotificationsBadge, 10000);
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#language-select').on('change', function () {
+                $('#language-form').submit();
+            });
+        });
+    </script>
+    
+    {% block js %}{% endblock %}
+</body>
+
+</html>
+
+{% comment %} <div class="dropdown">
+                                    <a class="dropdown-item dropdown-toggle" href="#" id="languageDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-globe"></i> {% translate 'Язык' %}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                                        <form action="{% url 'set_language' %}" method="post" id="language-form">
+                                            {% csrf_token %}
+                                            <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+                                            <div class="dropdown-item">
+                                                <select name="language" id="language-select" class="form-control">
+                                                    {% get_current_language as LANGUAGE_CODE %}
+                                                    {% get_available_languages as LANGUAGES %}
+                                                    {% for lang_code, lang_name in LANGUAGES %}
+                                                        <option value="{{ lang_code }}" {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+                                                            {{ lang_name }}
+                                                        </option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div> {% endcomment %}  

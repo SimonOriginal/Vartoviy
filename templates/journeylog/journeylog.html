@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate 'История перемещений' %}{% endblock title %}
+{% block extrastyle %}
+{% comment %} <link rel="icon" type="image/x-icon" href="{% static 'img/gps.png'%}"> {% endcomment %}
+<style>
+    .switch-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .switch-input {
+        display: none;
+
+    }
+    
+    .switch-label {
+        cursor: pointer;
+        padding: 7px 20px;
+        background-color: #FF0000;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        color: #fff;
+    }
+    
+    .switch-input:checked + .switch-label {
+        background-color: #4caf50; /* Цвет при включении */
+
+    }
+
+    .unselectable-text {
+        -webkit-user-select: none; /* Для старых версий браузеров, основанных на WebKit */
+        -moz-user-select: none; /* Для Firefox */
+        -ms-user-select: none; /* Для Internet Explorer/Edge */
+        user-select: none;
+    }
+    
+    
+</style>
+{% endblock %}
+{% block content %}   
+    
+<!-- HTML-код страницы -->
+<div class="container">
+    <div id="map" class="mb-4" style="height: 68vh;"></div>
+    <div class="row mb-2">
+        <div class="col-md-2 mb-2">
+            <div class="dropdown">
+                    <select id="deviceDropdown" class="form-control">
+                        {% if devices %}
+                        {% for device in devices %}
+                            <option value="{{ device.id }}">{{ device.device_name }}</option>
+                        {% endfor %}
+                        {% else %}
+                            <option>{% translate 'Нет устройств !' %}</option>
+                        {% endif %}
+                    </select> 
+            </div>            
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-info btn-block mb-2" id="getLocationPointButton">
+                <i class="fas fa-street-view"></i> {% translate 'Последня' %} 
+            </button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-info btn-block mb-2" id="refreshDataButton">
+                <i class="fa-solid fa-rotate-right"></i> {% translate 'Обновить' %}
+            </button>            
+        </div>
+        <div class="col-md-3 unselectable-text">
+            <div class="switch-container">
+                <input type="checkbox" class="switch-input" id="autoRefreshCheckbox">
+                <label class="switch-label" for="autoRefreshCheckbox">
+                    <i class="fas fa-sync-alt"></i> {% translate 'Авто' %}
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6 unselectable-text">
+            <div class="form-group">
+                <input type="range" class="form-control-range" id="maxDataPointsSlider" min="1" max="5000" value="50">
+                <label for="maxDataPointsSlider" title="{% translate 'Выберите количество маркеров для отображения на карте максимально 5000 штук.' %}"><i class="fa-solid fa-location-dot"></i> {% translate 'Количество маркеров на карте:' %} <span id="maxDataPointsValue">20</span></label> 
+            </div>            
+        </div>        
+    </div>
+</div>
+
+{% endblock content %}
+{% block js %}
+    <!-- Leaflet JS и плагины -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <!-- Пользовательский JavaScript файл -->
+    <script src="{% static 'js/histoty_walk.js' %}"></script>
+{% endblock %}
