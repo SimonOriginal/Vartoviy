@@ -51,7 +51,7 @@ To launch a project in a Docker container, follow these steps:
 
    This command will start the container in the background, assign port 8000 on your host to port 8000 in the container, and use the image name you specified earlier.
 
-3. **Access the project**: You can now open the project in your browser at `http://localhost:8000/`.
+3. **Access the project**: You can now open the project in your browser at http://localhost:8000/.
 
 ### Alternative Installation 🚀
 
@@ -88,7 +88,7 @@ To launch a project in a Docker container, follow these steps:
    ```
    python manage.py runserver
    ```
-You can now open the project in your browser at http://127.0.0.1:8000/.
+You can now open the project in your browser at http://localhost:8000/.
 
 6. **Start the script for virtual sensors (optional)**:
 
