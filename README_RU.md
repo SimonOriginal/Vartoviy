@@ -33,3 +33,45 @@
 * **<u>Docker </u>**
 * **<u>Other</u>**
 
+### Развертывание
+
+1. **Создание виртуального окружения**:
+
+   ```
+   python -m venv venv
+   ```
+
+2. **Активация виртуального окружения**:
+
+   ```
+   .\venv\Scripts\Activate.ps1
+   ```
+
+3. **Установка зависимостей**:
+
+   ```
+   pip install -r "requirements.txt"
+   ```
+
+4. **Миграции**:
+
+   ```
+   python manage.py makemigrations
+   ```
+
+   ```
+   python manage.py migrate
+   ```
+
+5. **Запуск сервера**:
+
+   ```
+   python manage.py runserver
+   ```
+Теперь вы можете открыть проект в вашем браузере по адресу http://127.0.0.1:8000/.
+
+6. **Запуск скрипта для виртуальных датчиков (опционально)**:
+
+   ```
+   python mqtt_virtual_sensor.py
+   ```

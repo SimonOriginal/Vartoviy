@@ -32,3 +32,46 @@
 ### Installation Options
 * **<u>Docker</u>**
 * **<u>Other</u>**
+
+### Deployment
+
+1. **Create a virtual environment**:
+
+   ```
+   python -m venv venv
+   ```
+
+2. **Activating the virtual environment**:
+
+   ```
+   .\venv\Scripts\Activate.ps1.
+   ```
+
+3. **Installing dependencies**:
+
+   ```
+   pip install -r "requirements.txt"
+   ```
+
+4. **Migrations**:
+
+   ```
+   python manage.py makemigrations
+   ```
+
+   ```
+   python manage.py migrate
+   ```
+
+5. **Starting the server**:
+
+   ```
+   python manage.py runserver
+   ```
+You can now open the project in your browser at http://127.0.0.1:8000/.
+
+6. **Start the script for virtual sensors (optional)**:
+
+   ```
+   python mqtt_virtual_sensor.py
+   ```
