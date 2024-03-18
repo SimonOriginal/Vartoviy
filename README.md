@@ -31,9 +31,29 @@
 
 ### Installation Options
 * **<u>Docker</u>**
-* **<u>Other</u>**
+* **<u>Alternative Installation</u>**
 
-### Deployment
+### Quick Start with Docker 🐳
+
+To launch a project in a Docker container, follow these steps:
+
+1. **Build a Docker image**:
+
+   ```
+   docker build -t vartoviy .
+   ```
+
+2. **Starting Docker container**:
+
+   ```
+   docker run -p 8000:8000 -d vartoviy
+   ```
+
+   This command will start the container in the background, assign port 8000 on your host to port 8000 in the container, and use the image name you specified earlier.
+
+3. **Access the project**: You can now open the project in your browser at `http://localhost:8000/`.
+
+### Alternative Installation 🚀
 
 1. **Create a virtual environment**:
 
