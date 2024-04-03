@@ -16,7 +16,7 @@ click-plugins==1.1.1
 click-repl==0.3.0
 colorama==0.4.6
 crispy-bootstrap5==2023.10
-Django==4.2.6
+Django==4.2.11
 django-background-tasks==1.2.5
 django-compat==1.0.15
 django-cors-headers==4.3.0
