@@ -32,10 +32,10 @@
 * **Ability to Download GeoJson of Configured Barrier:** Users can easily download barrier geographic data in GeoJson format for further use or analysis.
 
 ### Installation Options
-* **<u>Docker</u>**
-* **<u>Alternative Installation</u>**
+* **[Docker](#docker-installation)**
+* **[Alternative Installation](#alternative-installation)**
 
-### Quick Start with Docker 🐳
+### Quick Start with Docker 🐳 <a name="docker-installation"></a>
 
 To launch a project in a Docker container, follow these steps:
 
@@ -80,7 +80,7 @@ Before running the build, you need to change the database bindings in the settin
 
 🚀 Done! Now you have a Docker image with a configured database and superuser for your Django application.
 
-### Alternative Installation 🚀
+### Alternative Installation 🚀 <a name="alternative-installation"></a>
 
 1. **Create a virtual environment**:
 
