@@ -1,5 +1,7 @@
 # Vartoviy
 
+[Read in Russian](./README_RU.md)
+
 **Vartoviy** (working title - "Вартовий") is an open-source platform specially designed for creating custom animal monitoring infrastructure on farms where they roam in open spaces. With Vartoviy, you can easily deploy a server in a Docker container or on your own computer, ensuring a high level of privacy and full control over your data. This project provides full transparency with open access to the server source code, device firmware, and detailed device schematics, allowing users to fully understand its operation.
 
 **Please note that "Vartoviy" is currently in development.**
@@ -52,6 +54,29 @@ To launch a project in a Docker container, follow these steps:
    This command will start the container in the background, assign port 8000 on your host to port 8000 in the container, and use the image name you specified earlier.
 
 3. **Access the project**: You can now open the project in your browser at http://localhost:8000/.
+
+### Variant with External PostgreSQL Database
+
+1. **Building Docker Image**:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+2. **Database Setup**:
+
+   To set up the database and create a superuser with authentication data, follow these steps:
+
+   ```bash
+   docker-compose exec web sh -c "python manage.py makemigrations && python manage.py migrate" &&
+   docker-compose down &&
+   docker-compose up --build -d &&
+   docker-compose exec -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_EMAIL=admin@example.com -e DJANGO_SUPERUSER_PASSWORD=adminpassword web bash -c "python manage.py createsuperuser --noinput"
+   ```
+
+   These commands will update the database, restart Docker containers, and create a superuser with the username "admin," email "admin@example.com," and password "adminpassword" (please use more secure passwords in real applications).
+
+🚀 Done! Now you have a Docker image with a configured database and superuser for your Django application.
 
 ### Alternative Installation 🚀
 
