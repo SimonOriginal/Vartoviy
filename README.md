@@ -19,17 +19,18 @@
 </p>
 
 ### Features
-* **Localization for Different Languages:** Users can select the interface language from options including "🇬🇧 English," "🇺🇦 Ukrainian," and "🇷🇺 Russian."
-* **Barrier Breach Notifications:** The system provides notifications in case of a specified barrier breach, ensuring prompt alerts about events.
-* **Low Battery Notifications (20%):** Users receive notifications when the battery level on the device reaches 20%, providing timely warnings about the need for charging.
-* **Theme Switching:** Users can switch between "🌞 Light" and "🌚 Dark" interface themes, providing a comfortable user experience in various lighting conditions.
-* **Device Connection via MQTT:** MQTT protocol is used for stable and efficient device connections, ensuring reliable data transmission.
-* **Display of Latest Data in Dashboard:** Users can visually track the latest device data through an intuitive and informative dashboard.
-* **Viewing Full Movement History:** Provides the ability to view the full movement history of a specific device, allowing for deeper analysis of its activity.
-* **Graphical Display and Modal Windows:** Graphical representation of data and the ability to analyze it in detail through modal windows provide a deeper understanding of information.
-* **Creating and Saving Barriers for Specific Devices:** Users can define and save a barrier for a specific device, providing personalized and flexible control.
-* **Display of Device Location and Barrier on Map:** Visual representation of the current device location and set barrier on the map.
-* **Ability to Download GeoJson of Configured Barrier:** Users can easily download barrier geographic data in GeoJson format for further use or analysis.
+* **Localization for Different Languages:** Users can select the interface language from options including "🇬🇧 English," "🇺🇦 Ukrainian," and "🇷🇺 Russian." 🌐
+* **Barrier Breach Notifications:** The system provides notifications in case of a specified barrier breach, ensuring prompt alerts about events. 🚨
+* **Low Battery Notifications (20%):** Users receive notifications when the battery level on the device reaches 20%, providing timely warnings about the need for charging. 🔋
+* **Theme Switching:** Users can switch between "🌞 Light" and "🌚 Dark" interface themes, providing a comfortable user experience in various lighting conditions. 🎨
+* **Device Connection via MQTT:** MQTT protocol is used for stable and efficient device connections, ensuring reliable data transmission. 📡
+* **Display of Latest Data in Dashboard:** Users can visually track the latest device data through an intuitive and informative dashboard. 📊
+* **Viewing Full Movement History:** Provides the ability to view the full movement history of a specific device, allowing for deeper analysis of its activity. 🕰️
+* **Graphical Display and Modal Windows:** Graphical representation of data and the ability to analyze it in detail through modal windows provide a deeper understanding of information. 📈
+* **Creating and Saving Barriers for Specific Devices:** Users can define and save a barrier for a specific device, providing personalized and flexible control. 🛡️
+* **Display of Device Location and Barrier on Map:** Visual representation of the current device location and set barrier on the map. 🗺️
+* **Ability to Download GeoJson of Configured Barrier:** Users can easily download barrier geographic data in GeoJson format for further use or analysis. 📤
+* **Use of external PostgreSQL database:** Users can configure a connection to an external PostgreSQL database for data storage, which ensures scalability and reliability of the system's operation under large volumes of information. 🗃️
 
 ### Installation Options
 * **[Docker 🐳](#docker-installation)**
