@@ -32,7 +32,7 @@
 * **Ability to Download GeoJson of Configured Barrier:** Users can easily download barrier geographic data in GeoJson format for further use or analysis.
 
 ### Installation Options
-* **[Docker](#docker-installation)**
+* **[Docker] 🐳 (#docker-installation)**
 * **[Alternative Installation](#alternative-installation)**
 
 ### Quick Start with Docker 🐳 <a name="docker-installation"></a>
