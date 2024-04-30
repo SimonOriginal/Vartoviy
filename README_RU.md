@@ -1,6 +1,6 @@
 # Vartoviy
 
-[Read in English](./README_EN.md)
+[Read in English](./README.md)
 
 **Vartoviy** (рабочее название - "Вартовий") - это платформа с открытым исходным кодом, специально разработанная для создания собственной инфраструктуры контроля за животными на фермах, где они выпасаются на открытых пространствах. С помощью Vartoviy вы легко развернете сервер в Docker-контейнере или на собственном компьютере, обеспечивая высокий уровень конфиденциальности и полный контроль над вашими данными. Этот проект обеспечивает полную прозрачность с открытым доступом к исходному коду сервера, прошивке устройства и подробным схемам самого устройства, что дает пользователям возможность полностью понимать его работу.
 
@@ -12,9 +12,9 @@
     <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/95d0d654-f70b-4bf9-9783-73979313bdb5" width="320" alt="Настройка барьера">
     <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/7c7acb89-7f51-4ba6-ab2e-179ded193074" width="320" alt="История перемещений">
     <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/815bd067-afab-46eb-b2ee-e04097f52740" width="320" alt="Главная">
-    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/2c912861-7d4a-4da3-bd7d-52d56e3253e6" width="320" alt="Таблицы">
     <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/5e2b6bf8-a003-4556-b166-4a3450e944a9" width="320" alt="Добавить устройство">
     <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/29e11bd5-0fcd-48c1-b3d2-8a47aa56e9fb" width="320" alt="Уведомления">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/2c912861-7d4a-4da3-bd7d-52d56e3253e6" width="320" alt="Таблицы">
     <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/d15c5bad-4f85-4b48-840a-7f414a0b2952" width="320" alt="О проекте">
 </p>
 
