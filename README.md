@@ -1,6 +1,6 @@
 # Vartoviy
 
-[Read in Russian](./README_RU.md) [Read in Ukrainian](./README_UA.md)
+📚 [Read in Ukrainian](./README_UA.md) 🇺🇦  📖 [Read in Russian](./README_RU.md)
 
 **Vartoviy** (working title - "Вартовий") is an open-source platform specially designed for creating custom animal monitoring infrastructure on farms where they roam in open spaces. With Vartoviy, you can easily deploy a server in a Docker container or on your own computer, ensuring a high level of privacy and full control over your data. This project provides full transparency with open access to the server source code, device firmware, and detailed device schematics, allowing users to fully understand its operation.
 
