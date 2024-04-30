@@ -8,15 +8,16 @@
 
 ### Скриншоты
 <p align="center">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/0c8d4f81-c148-4550-9c5f-162a96852ee7" width="320" alt="Image 1">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/bfeffd59-6495-4e8a-aae7-6002a8e28272" width="320" alt="Image 2">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/04bb9161-e431-4744-9a70-8b552df96e54" width="320" alt="Image 3">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/1b368e06-d0d2-4cc2-9e98-297028a426f7" width="320" alt="Image 4">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/a0e8a050-f1ba-44c3-bdc0-9c12a319c9ce" width="320" alt="Image 5">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/06751e6d-1d3b-4d44-baec-b897ca2574ba" width="320" alt="Image 6">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/be24ec32-cc9d-4b63-9b98-a7f5e1387a03" width="320" alt="Image 7">
-    <img src="https://github.com/SimonOriginal/Guardian/assets/94782611/b0bd8b6b-1bbe-4910-b537-fdb11c96e33c" width="320" alt="Image 8">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/d7679b6d-4e78-4536-80cd-659e940ceb7a" width="320" alt="Главная">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/95d0d654-f70b-4bf9-9783-73979313bdb5" width="320" alt="Настройка барьера">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/7c7acb89-7f51-4ba6-ab2e-179ded193074" width="320" alt="История перемещений">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/815bd067-afab-46eb-b2ee-e04097f52740" width="320" alt="Главная">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/2c912861-7d4a-4da3-bd7d-52d56e3253e6" width="320" alt="Таблицы">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/5e2b6bf8-a003-4556-b166-4a3450e944a9" width="320" alt="Добавить устройство">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/29e11bd5-0fcd-48c1-b3d2-8a47aa56e9fb" width="320" alt="Уведомления">
+    <img src="https://github.com/SimonOriginal/Vartoviy-Server/assets/94782611/d15c5bad-4f85-4b48-840a-7f414a0b2952" width="320" alt="О проекте">
 </p>
+
 
 ### Функции
 * **Локализация для разных языков:** Пользователи могут выбирать язык интерфейса из предложенных, включая "🇬🇧 Английский", "🇺🇦 Украинский" и "🇷🇺 Русский".
